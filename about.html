@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Food Delivery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Food Delivery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showContent('about')" aria-current="page">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showContent('contact')">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="delivery_request.html">Cart</a>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex ms-2" id="searchForm">
+                    <input class="form-control me-2" type="search" placeholder="restaurants or food" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+                <ul class="navbar-nav align-items-center ms-2">
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="index.html#profile" title="My Profile">
+                            <img src="img/Myprofile.jpg" alt="Profile" class="square img-fluid" style="width: 60px; height: 60px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Area -->
+    <div class="container">
+        <section id="about" class="content-section mt-4">
+            <h2>About Us</h2>
+            <p>We are a food delivery platform connecting you with local restaurants. Our mission is to make food ordering simple, fast, and reliable.</p>
+            <h3>Our Data Commitment</h3>
+            <p>We value your privacy. Our platform uses advanced encryption to protect your personal information. We collect minimal data, such as order history and preferences, to enhance your experience while ensuring transparency. For example, in 2024, we processed over 1 million orders securely, with 99.9% of transactions free from data breaches.</p>
+        </section>
+        <section id="contact" class="content-section mt-4" style="display: none;">
+            <h2>Contact Us</h2>
+            <p>Reach out to us at <a href="mailto:support@fooddelivery.com" class="text-decoration-none" style="color: var(--primary-color);">support@fooddelivery.com</a> or call us at <a href="tel:+1234567890" class="text-decoration-none" style="color: var(--primary-color);">(123) 456-7890</a>.</p>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to toggle content sections
+        function showContent(sectionId) {
+            const sections = ['about', 'contact'];
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    section.style.display = id === sectionId ? 'block' : 'none';
+                }
+            });
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+                if (link.getAttribute('onclick') === `showContent('${sectionId}')`) {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+
+        // Show 'about' section by default on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('about');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery - Item Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6f61;
+        }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .item-container {
+            background: linear-gradient(145deg, #ffffff, #f4f4f9);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        .item-image {
+            border: 5px solid var(--primary-color);
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Food Delivery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="delivery_request.html">Cart</a>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex ms-2" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Restaurants or food" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+                <ul class="navbar-nav align-items-center ms-2">
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="#" data-section="profile" title="My Profile" aria-label="My Profile">
+                            <img src="img/myprofile.jpg" alt="Profile" class="squared" style="width: 60px; height: 60px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Item Details -->
+    <div class="container my-4 item-container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <img id="itemImage" class="item-image img-fluid" alt="Item Image">
+            </div>
+            <div class="col-md-6">
+                <h2 id="itemName" class="mb-3"></h2>
+                <p class="fs-4 mb-2"><strong>Price:</strong> <span id="itemPrice" style="color: var(--primary-color);"></span></p>
+                <p class="mb-4"><strong>Description:</strong> <span id="itemDescription"></span></p>
+                <button id="addToCart" class="btn btn-success btn-lg">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('[data-section]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.toggle('active', section.id === sectionId);
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

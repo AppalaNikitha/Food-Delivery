@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery - Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet"> <!-- Fixed typo from "cs" to "css" -->
+</head>
+<body>
+   <!-- Navigation Bar -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Food Delivery</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="delivery_request.html">Cart</a>
+                </li>
+            </ul>
+            <!-- <form class="d-flex ms-2" role="search">
+                <input class="form-control me-2" type="search" placeholder="Restaurants or food" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            <ul class="navbar-nav align-items-center ms-2">
+                <li class="nav-item">
+                    <a class="nav-link p-0" href="#" onclick="showContent('profile')" title="My Profile">
+                        <img src="img/Myprofile.jpg" alt="Profile" class="square" style="width: 60px; height: 60px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Checkout Form -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Order Summary -->
+            <div class="col-md-6 mb-4">
+                <div class="card p-4">
+                    <h3 class="mb-3">Order Summary</h3>
+                    <table class="table">
+                        <tbody id="orderSummaryBody">
+                            <!-- Dynamically populated by JavaScript -->
+                        </tbody>
+                        <tr>
+                            <td>Delivery Fee</td>
+                            <td id="deliveryFee">$5.00</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <th id="orderTotal" style="background-color: var(--primary-color); color: white; padding: 10px; border-radius: 5px;">$0.00</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Delivery Details -->
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h3 class="mb-3">Delivery Details</h3>
+                    <form id="checkoutForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label" style="color: var(--secondary-color); font-weight: 500;">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact" class="form-label" style="color: var(--secondary-color); font-weight: 500;">Contact Number</label>
+                            <input type="tel" class="form-control" id="contact" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label" style="color: var(--secondary-color); font-weight: 500;">Delivery Address</label>
+                            <textarea class="form-control" id="address" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deliveryOption" class="form-label" style="color: var(--secondary-color); font-weight: 500;">Delivery Option</label>
+                            <select class="form-select" id="deliveryOption">
+                                <option value="standard">Standard ($5.00)</option>
+                                <option value="express">Express ($10.00)</option>
+                                <option value="eco">Eco-Friendly ($7.00)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
