@@ -36,6 +36,6 @@ Bootstrap & JS for layout and responsiveness
 Custom CSS for styling
 
 
-### checkout here: https://food-delivery-orpin-psi.vercel.app/index.html
+### Do Checkout Execution video to view the project without actually downloading.
 
 
